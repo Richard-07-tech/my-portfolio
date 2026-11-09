@@ -1,0 +1,83 @@
+{
+  "app_name": "Richard Allen Doss - AI/ML & Software Engineering Portfolio",
+  "app_type": "portfolio",
+  "design_context": "Marketing / Personal Portfolio (Awwwards-level, bold, immersive)",
+  "emotional_tone": "Cutting-edge, precise, sophisticated, elite engineering craft",
+  "typography": {
+    "heading_font": "Unbounded, sans-serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "mono_font": "JetBrains Mono, monospace"
+  },
+  "colors": {
+    "archetype": "Luxury / High-End Tech (Obsidian Void with Luminous Cyan & Electric Amethyst Accents)",
+    "primary": "#0A0F1D",
+    "secondary": "#131C31",
+    "accent_cyan": "#00F2FE",
+    "accent_purple": "#7928CA",
+    "accent_emerald": "#10B981",
+    "text_main": "#F8FAFC",
+    "text_muted": "#94A3B8",
+    "border_color": "rgba(255, 255, 255, 0.08)"
+  },
+  "visual_enhancers": {
+    "grain_overlay": true,
+    "spotlight_cards": true,
+    "glassmorphism": "backdrop-blur-xl bg-black/60 border border-white/10",
+    "kinetic_marquee": "Slow editorial marquee with glowing punctuation",
+    "parallax_hero": true,
+    "masked_line_reveal": true
+  },
+  "component_path": "/app/frontend/src/components/",
+  "grids": {
+    "bento_strategy": "Tetris Grid with Asymmetrical Spanning for Projects and Skills",
+    "gap": "gap-8 lg:gap-10"
+  },
+  "layouts": {
+    "sections_order": [
+      "Hero",
+      "About",
+      "Skills",
+      "Projects",
+      "Leadership & Hackathons",
+      "Education & Certifications",
+      "Coding Practice",
+      "Contact",
+      "Footer"
+    ]
+  },
+  "motion": {
+    "library": "framer-motion",
+    "smooth_scroll": "Lenis momentum scrolling",
+    "transitions": "Spring physics, staggered entrance reveals, hover spotlight tracking"
+  },
+  "accessibility": {
+    "wcag_target": "AA+",
+    "contrast_ratio": "Exceeds 4.5:1 for all textual elements",
+    "aria_labels": "Comprehensive aria-labels on interactive elements",
+    "data_testids": "Strict kebab-case data-testid on every interactive element"
+  },
+  "media": {
+    "favicon": "/favicon.svg",
+    "resume_pdf": "/resume.pdf",
+    "images": []
+  },
+  "image_urls": [],
+  "instructions_to_main_agent": [
+    "Build a breathtaking, Awwwards Site-of-the-Day level single-page personal portfolio for Richard Allen Doss.",
+    "Strictly adhere to the resume data provided for Richard Allen Doss (AI/ML & Software Engineering roles, education, Canopy project featured first with project detail view/modal, leadership & hackathons, education, coding practice).",
+    "Include content in src/data/content.js for easy editing.",
+    "Implement Lenis smooth scrolling and Framer Motion for scroll-reveals and micro-interactions.",
+    "Include a distinctive product name and original SVG logo/favicon.",
+    "Include resume download, GitHub, LinkedIn, email links, SEO metadata, and sitemap.",
+    "Ensure every interactive element has a data-testid attribute.",
+    "Make sure the hero features a kinetic masked line-by-line reveal and subtle 3D/parallax depth."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Never use universal transitions like transition: all.",
+    "Do not center-align the app container (.App { text-align: center; } is strictly forbidden).",
+    "Use 2-3x more spacing than typical designs for luxury breathing room.",
+    "Never use AI assistant emoji characters like 🤖🧠💭💡🔮🎯 for icons.",
+    "Every interactive element must have a data-testid attribute.",
+    "Use Sonner for toast notifications."
+  ]
+}
