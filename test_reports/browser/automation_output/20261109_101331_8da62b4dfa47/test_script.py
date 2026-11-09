@@ -1,0 +1,31 @@
+async def run_test(page, output_dir, page_url):
+    try:
+        await page.set_viewport_size({"width":1920,"height":1080})
+        await page.goto("https://build-with-doss--7yx5grkc.preview.emergentagent.com", wait_until="networkidle", timeout=30000)
+        print("title=", await page.title())
+        print("description=", await page.locator('meta[name="description"]').get_attribute("content"))
+        print("favicon=", await page.locator('link[rel="icon"]').get_attribute("href"))
+        print("work cards=", await page.locator('[data-testid^="project-card-"]').count())
+        await page.locator('[data-testid="hero-view-projects"]').click()
+        await page.wait_for_timeout(500)
+        print("work top=", await page.locator('#work').bounding_box())
+        for tid,target in [("nav-about","about"),("nav-skills","skills"),("nav-work","work"),("nav-contact","contact")]:
+            el=page.locator(f'[data-testid="{tid}"]')
+            await el.scroll_into_view_if_needed(); await el.click(); await page.wait_for_timeout(300)
+            print(tid, await page.locator(f'#{target}').bounding_box())
+        await page.locator('[data-testid="theme-toggle"]').click(); await page.wait_for_timeout(100)
+        print("theme=", await page.locator('html').get_attribute('class'))
+        await page.locator('[data-testid="project-details-canopy"]').click(); await page.wait_for_selector('[data-testid="project-modal"]')
+        print("modal=", await page.locator('[data-testid="project-modal"]').get_attribute('role'), "placeholder_links=", await page.locator('[data-testid^="modal-link-"][href="#"]').count())
+        await page.locator('[data-testid="project-modal-close"]').click()
+        print("modal_closed=", not await page.locator('[data-testid="project-modal"]').is_visible())
+        print("resume=", await page.locator('[data-testid="hero-download-resume"]').get_attribute('href'))
+        print("contact hrefs=", [await page.locator(f'[data-testid="{x}"]').get_attribute('href') for x in ['contact-email','contact-github','contact-linkedin']])
+        await page.set_viewport_size({"width":390,"height":844}); await page.reload(wait_until="networkidle"); await page.wait_for_selector('[data-testid="hero-section"]')
+        print("mobile widths=", await page.evaluate("[document.documentElement.scrollWidth,document.documentElement.clientWidth]"))
+        await page.emulate_media(reduced_motion="reduce")
+        print("reduced animation=", await page.evaluate("getComputedStyle(document.querySelector('.marquee > div')).animationDuration"))
+        print("TEST RESULT: PASS")
+    except Exception as e:
+        print(f"FINDING: {e}")
+        raise
